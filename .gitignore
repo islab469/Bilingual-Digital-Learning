@@ -1,21 +1,29 @@
-# Unity 忽略檔案
+# Unity generated folders
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
+MemoryCaptures/
 UserSettings/
+
+# VS/IDE
 .vs/
 *.csproj
 *.sln
 *.user
-*.unityproj
-*.pid
-*.tmp
-*.bak
-*.swp
+*.suo
 
+# OS
+.DS_Store
+Thumbs.db
+
+# Others
+*.tmp
+*.pid
+*.swp
+*.bak
 
 Untracked files:
   ../AirEditor/
