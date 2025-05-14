@@ -1,54 +1,21 @@
-# Visual Studio
-.vs/
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-
-# Build results
-[Bb]in/
-[Oo]bj/
-*.exe
-*.dll
-*.app
-*.log
-
-# NuGet
-*.nupkg
-*.snupkg
-.nuget/
-packages/
-project.lock.json
-project.fragment.lock.json
-
-# Rider
-.idea/
-
-# Unity (如有使用)
+# Unity 忽略檔案
 [Ll]ibrary/
 [Tt]emp/
+[Oo]bj/
 [Bb]uild/
 [Bb]uilds/
-Logs/
-MemoryCaptures/
+[Ll]ogs/
+UserSettings/
+.vs/
 *.csproj
-*.unityproj
 *.sln
-*.userprefs
-
-# OS generated files
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Others
-*.swp
-*.bak
-*.tmp
+*.user
+*.unityproj
 *.pid
+*.tmp
+*.bak
+*.swp
 
-# Ignore local configuration
-.env
 
 Untracked files:
   ../AirEditor/
