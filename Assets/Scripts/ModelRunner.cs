@@ -7,14 +7,14 @@ using Unity.Barracuda;
 public class ModelRunner : MonoBehaviour
 {
     [Header("Model & UI")]
-    public NNModel onnxModelAsset;           // ©ì¤JONNX¼Ò«¬¸ê·½
-    public RawImage cameraPreview;           // ©çÄáµe­±Åã¥Ü
-    public TMP_Text resultText;              // ¿é¥Xµ²ªGÅã¥Ü
+    public NNModel onnxModelAsset;           // æ‹–å…¥ONNXæ¨¡å‹è³‡æº
+    public RawImage cameraPreview;           // æ‹æ”ç•«é¢é¡¯ç¤º
+    public TMP_Text resultText;              // è¼¸å‡ºçµæœé¡¯ç¤º
 
     private IWorker worker;
     private WebCamTexture webcamTexture;
 
-    // ¼Ò«¬¿é¤J¤j¤p¡]­n¸ò°V½m®É¤@­P¡^
+    // æ¨¡å‹è¼¸å…¥å¤§å°ï¼ˆè¦è·Ÿè¨“ç·´æ™‚ä¸€è‡´ï¼‰
     private const int INPUT_SIZE = 224;
 
     void Start()
@@ -60,7 +60,9 @@ public class ModelRunner : MonoBehaviour
                 worker.Execute(input);
                 var output = worker.PeekOutput();
                 int predictedClass = ArgMax(output.ToReadOnlyArray());
-                resultText.text = $"¿ëÃÑµ²ªG¡GClass {predictedClass}";
+            // MobileNetV2 expects RGB values normalized to -1~1
+        Destroy(snap);
+        Destroy(resized);
                 output.Dispose();
             }
         }
@@ -79,7 +81,7 @@ public class ModelRunner : MonoBehaviour
 
         for (int i = 0; i < pixels.Length; i++)
         {
-            // MobileNetV2 ¹w³B²z½d¨Ò¡GRGB ­ÈÂà -1~1
+            // MobileNetV2 é è™•ç†ç¯„ä¾‹ï¼šRGB å€¼è½‰ -1~1
             floatValues[i * 3 + 0] = (pixels[i].r / 255f) * 2f - 1f;
             floatValues[i * 3 + 1] = (pixels[i].g / 255f) * 2f - 1f;
             floatValues[i * 3 + 2] = (pixels[i].b / 255f) * 2f - 1f;
